@@ -12,52 +12,98 @@
 
     <div class="container-fluid">
         <!-- Page Content -->
-        <h2 class="text-center">Manage Categories</h2>
+        <h2 class="text-center">管理目录</h2>
         <hr>
 
-        <diV class="row" style="background-color:#181e22; color:white;" >
-            <div class="col-sm-3">
-                <?php  insert_categories(); ?>                 <!-- insertion of categories -->
-                
-                <form action="" method="POST" class="mt-4">
-                    <div class="form-group">
-                        <label for="heading">Create Category</label>
-                        <input type="text" class="form-control" name="cat_title" >
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-secondary " name="submit" value="CREATE" >
-                    </div>
-                </form>
 
+        
+        <diV class="row" style="background-color:white; color:#181e22;" >        
+        <div id="grid_table"></div>
+      
+      
+      <script src="jquery.min.js"></script>
+      <link type="text/css" rel="stylesheet" href="jsgrid.min.css" />
+      <link type="text/css" rel="stylesheet" href="jsgrid-theme.min.css" />
+      <script type="text/javascript" src="jsgrid.min.js"></script>
+      <script src="i18n/jsgrid-zh-cn.js"></script>
+        <script>
+	jsGrid.locale("zh-cn");
+    $('#grid_table').jsGrid({
 
-                <?php                           //Edit categories
-                if(isset($_GET['edit'])){
-                    $cat_id = $_GET['edit'];
-                    include "includes/update_category.php";
-                }
-                ?>
-            </div>
+      width: "100%",
+      height: "600px",
+
+      filtering: true,
+      inserting:true,
+      editing: true,
+      sorting: true,
+      paging: true,
+      autoload: true,
+      pageSize: 10,
+      pageButtonCount: 5,
+      deleteConfirm: "Do you really want to delete data?",
+
+      controller: {
+      loadData: function(filter){
+       return $.ajax({
+        type: "GET",
+        url: "fetch_category.php",
+        data: filter
+       });
+      },
+      insertItem: function(item){
+       return $.ajax({
+        type: "POST",
+        url: "fetch_category.php",
+        data:item
+       });
+      },
+      updateItem: function(item){
+       return $.ajax({
+        type: "PUT",
+        url: "fetch_category.php",
+        data: item
+       });
+      },
+      deleteItem: function(item){
+       return $.ajax({
+        type: "DELETE",
+        url: "fetch_category.php",
+        data: item
+       });
+      },
+      },
+
+      fields: [
+        {
+          title: "编号",
+          name: "cat_id",
+          type: "hidden",
+          css: 'hide'
+        },
+        {
+          title: "目录标题",
+          name: "cat_title", 
+          type: "text", 
+          width: 150, 
+          validate: "required"
+        },
+        {
+          title: "目录创建者",
+          name: "cat_creator", 
+          type: "text", 
+          width: 150, 
+          validate: "required"
+        },
+        {
+          type: "control"
+        }
+      ]
+
+    });
+
+</script>
         </div>
-
-        <diV class="row" style="background-color:#181e22; color:white;" >
-            <table class="table table-bordered table-hover table-dark text-center">
-            <p class='ml-5 mt-4'>#Information About Categories</p>
-                <thead>
-                    <tr>
-                      <th scope="col" >S.No.</th>
-                      <th scope="col" >CATERORY</th>
-                      <th scope="col" >CREATOR</th>
-                      <th scope="col" >DELETE</th>
-                      <th scope="col" >EDIT</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php FindAllCAtegories(); ?>               <!-- find all categories -->     
-                    <?php DeleteCategories(); ?>                <!--delete category -->
-                </tbody>
-            </table>
-        </div>
-
 
   </div>
   <!-- /.container-fluid -->
