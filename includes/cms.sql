@@ -33,7 +33,7 @@ CREATE TABLE `categories` (
   `cat_title` varchar(255) NOT NULL,
   `cat_creator` varchar(20) NOT NULL,
   `cat_user` varchar(2000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
@@ -60,7 +60,7 @@ CREATE TABLE `comments` (
   `comment_content` text NOT NULL,
   `comment_status` varchar(255) NOT NULL,
   `comment_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `comments`
@@ -91,7 +91,7 @@ CREATE TABLE `posts` (
   `post_comment_count` int(11) NOT NULL,
   `post_status` varchar(255) NOT NULL DEFAULT 'draft',
   `post_views_count` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `posts`
@@ -125,7 +125,7 @@ CREATE TABLE `users` (
   `user_role` varchar(255) NOT NULL,
   `randSalt` varchar(255) NOT NULL DEFAULT '$2y$10$iusesomecrazystrings22',
   `token` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -148,7 +148,7 @@ CREATE TABLE `users_online` (
   `id` int(11) NOT NULL,
   `session` varchar(255) NOT NULL,
   `time` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users_online`
