@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categories` (
-  `cat_id` int(3) NOT NULL,
-  `cat_title` varchar(255) NOT NULL,
-  `cat_creator` varchar(20) NOT NULL,
-  `cat_user` varchar(2000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `cat_id` int(3) ,
+  `cat_title` varchar(255) ,
+  `cat_creator` varchar(20) ,
+  `cat_user` varchar(2000) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
@@ -53,14 +53,14 @@ INSERT INTO `categories` (`cat_id`, `cat_title`, `cat_creator`, `cat_user`) VALU
 --
 
 CREATE TABLE `comments` (
-  `comment_id` int(3) NOT NULL,
-  `comment_post_id` int(3) NOT NULL,
-  `comment_author` varchar(255) NOT NULL,
-  `comment_email` varchar(255) NOT NULL,
-  `comment_content` text NOT NULL,
-  `comment_status` varchar(255) NOT NULL,
-  `comment_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `comment_id` int(3) ,
+  `comment_post_id` int(3) ,
+  `comment_author` varchar(255) ,
+  `comment_email` varchar(255) ,
+  `comment_content` text ,
+  `comment_status` varchar(255) ,
+  `comment_date` date 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `comments`
@@ -80,18 +80,18 @@ INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comm
 --
 
 CREATE TABLE `posts` (
-  `post_id` int(3) NOT NULL,
-  `post_category_id` int(3) NOT NULL,
-  `post_title` varchar(255) NOT NULL,
-  `post_user` varchar(255) NOT NULL,
-  `post_date` date NOT NULL,
-  `post_image` text NOT NULL,
-  `post_content` text NOT NULL,
-  `post_tags` varchar(255) NOT NULL,
-  `post_comment_count` int(11) NOT NULL,
-  `post_status` varchar(255) NOT NULL DEFAULT 'draft',
-  `post_views_count` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `post_id` int(3) ,
+  `post_category_id` int(3) ,
+  `post_title` varchar(255) ,
+  `post_user` varchar(255) ,
+  `post_date` date ,
+  `post_image` text ,
+  `post_content` text ,
+  `post_tags` varchar(255) ,
+  `post_comment_count` int(11) ,
+  `post_status` varchar(255)  DEFAULT 'draft',
+  `post_views_count` int(11) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `posts`
@@ -115,17 +115,17 @@ INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_user`, `
 --
 
 CREATE TABLE `users` (
-  `user_id` int(3) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `user_password` varchar(255) NOT NULL,
-  `user_firstname` varchar(255) NOT NULL,
-  `user_lastname` varchar(255) NOT NULL,
-  `user_email` varchar(255) NOT NULL,
-  `user_image` text NOT NULL,
-  `user_role` varchar(255) NOT NULL,
-  `randSalt` varchar(255) NOT NULL DEFAULT '$2y$10$iusesomecrazystrings22',
-  `token` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `user_id` int(3) ,
+  `username` varchar(255) ,
+  `user_password` varchar(255) ,
+  `user_firstname` varchar(255) ,
+  `user_lastname` varchar(255) ,
+  `user_email` varchar(255) ,
+  `user_image` text ,
+  `user_role` varchar(255) ,
+  `randSalt` varchar(255)  DEFAULT '$2y$10$iusesomecrazystrings22',
+  `token` text 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -144,10 +144,10 @@ INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_firstname`, `
 --
 
 CREATE TABLE `users_online` (
-  `id` int(11) NOT NULL,
-  `session` varchar(255) NOT NULL,
-  `time` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) ,
+  `session` varchar(255) ,
+  `time` int(11) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users_online`
@@ -201,31 +201,31 @@ ALTER TABLE `users_online`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `cat_id` int(3)  AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `comment_id` int(3)  AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `post_id` int(3)  AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `user_id` int(3)  AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `users_online`
 --
 ALTER TABLE `users_online`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11)  AUTO_INCREMENT, AUTO_INCREMENT=43;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
