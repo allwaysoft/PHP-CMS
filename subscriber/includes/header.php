@@ -32,17 +32,18 @@ if(isset($_SESSION['user_role'])) {
     <title>Harshit-Subscriber Dashboard</title>
 
     <!-- Bootstrap core CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    
     <!-- Custom fonts for this template-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/all.css" >
+    
     <!-- Custom styles for this template-->
     <link href="css/sb-subscriber.css" rel="stylesheet">
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
+    <script src="js/ckeditor.js"></script>
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="js/loader.js"></script>
+
 
   </head>
 
