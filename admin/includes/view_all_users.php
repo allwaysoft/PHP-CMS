@@ -3,7 +3,7 @@
     <h6>List Of All Users</h6>
     <hr>
 
-    <table class="table table-hover table-dark table-bordered">
+    <table class="table table-hover table-white table-bordered">
         <thead>
             <tr>
               <th scope="col">S.No.</th>

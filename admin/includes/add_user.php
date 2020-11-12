@@ -2,7 +2,7 @@
 <hr>
 
 <?php
-var_dump($_POST);
+
 if(isset($_POST['create_user'])){
     $user_firstname = $_POST['firstname'];
     $user_lastname = $_POST['lastname'];

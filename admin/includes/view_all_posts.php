@@ -3,7 +3,7 @@
     <h6>You can manage posts as your wish.</h6>
     <hr>
 
-    <table class="table table-hover table-dark table-bordered">
+    <table class="table table-hover table-white table-bordered">
         <thead>
             <tr>
               <th scope="col">S.No.</th>
@@ -21,7 +21,7 @@
 
         <?php
             $serial=0;
-            $query = "SELECT * FROM posts";
+            $query = "SELECT * FROM posts order by post_id desc";
             $select_all_posts_query = mysqli_query($connection,$query);
             while($row = mysqli_fetch_assoc($select_all_posts_query)){
                $post_id = $row['post_id'];
